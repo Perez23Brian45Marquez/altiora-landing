@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ALTIORA | Controla ventas e inventario de tu pequeño negocio</title>
+  <meta name="description" content="ALTIORA es una plataforma web sencilla para registrar ventas, administrar productos y controlar el inventario de tiendas de barrio, bazares y pequeños comercios en Bolivia. Inscríbete a la beta.">
+  <meta name="keywords" content="control de inventario, sistema de ventas, punto de venta, tienda de barrio, pequeños negocios, Bolivia, SaaS, ALTIORA">
+  <meta name="author" content="Brian Kevin Marquez Pérez">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b2447">
+
+  <!-- Open Graph / redes sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ALTIORA | Ventas e inventario de tu negocio en un solo lugar">
+  <meta property="og:description" content="Plataforma web sencilla para pequeños comercios de Bolivia. Inscríbete a la beta gratuita.">
+  <meta property="og:image" content="assets/wireframe-2-panel.jpg">
+  <meta property="og:locale" content="es_BO">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Habilita las animaciones solo si JavaScript funciona -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Google Analytics 4: reemplaza G-XXXXXXXXXX por tu ID de medición (también en config.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ALTIORA",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Plataforma web para controlar ventas, productos e inventario de pequeños negocios.",
+    "offers": [
+      { "@type": "Offer", "name": "Básico", "price": "39", "priceCurrency": "BOB" },
+      { "@type": "Offer", "name": "Profesional", "price": "89", "priceCurrency": "BOB" },
+      { "@type": "Offer", "name": "Empresarial", "price": "169", "priceCurrency": "BOB" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Íconos SVG reutilizables -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="M8 7h8"/><path d="M8 11h6"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/><path d="m7.5 4.27 9 5.15"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  </svg>
+
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="ALTIORA, ir al inicio">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="brand-name">ALTIORA</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="menu" class="nav" aria-label="Principal">
+        <a href="#problema">Problema</a>
+        <a href="#solucion">Solución</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#prototipo">Prototipo</a>
+        <a href="#planes">Planes</a>
+        <a class="btn btn-small" href="#beta" data-track="cta_menu">Unirme a la beta</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="blob blob-1" aria-hidden="true"></div>
+      <div class="blob blob-2" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow pill"><span class="dot" aria-hidden="true"></span>Beta abierta · Prototipo académico</p>
+          <h1>Controla las ventas y el inventario de tu pequeño negocio <span class="accent">desde un solo lugar</span>.</h1>
+          <p class="for-line">Hecho para <span class="rotator" id="rotator" data-words="tiendas de barrio|bazares|librerías|ferreterías|negocios familiares">tiendas de barrio</span></p>
+          <p class="lead">ALTIORA reemplaza los cuadernos y las hojas de cálculo dispersas con una plataforma web simple: registra ventas, consulta tu stock y revisa tu historial sin complicaciones.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-pulse" href="#beta" data-track="cta_hero">Quiero probar la beta <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-ghost" href="#prototipo">Ver el prototipo</a>
+          </div>
+          <ul class="hero-points" aria-label="Puntos clave">
+            <li>Pensado para Bolivia (Bs)</li>
+            <li>Sin conocimientos técnicos</li>
+            <li>Prueba gratuita de 7 días propuesta</li>
+          </ul>
+        </div>
+        <div class="hero-visual">
+          <figure id="tilt" class="tilt">
+            <img src="assets/wireframe-2-panel.jpg" width="1352" height="1235" alt="Panel principal de ALTIORA con ventas del día, total de productos y alertas de existencias bajas">
+            <figcaption>Panel principal del prototipo (datos ficticios)</figcaption>
+          </figure>
+          <div class="chip chip-1" aria-hidden="true"><svg class="ico"><use href="#i-alert"/></svg><span><strong>4 productos</strong> con stock bajo</span></div>
+          <div class="chip chip-2" aria-hidden="true"><svg class="ico"><use href="#i-check"/></svg><span>Venta registrada · <strong>Bs 47,50</strong></span></div>
+          <div class="chip chip-3" aria-hidden="true"><svg class="ico"><use href="#i-trend"/></svg><span>Ventas de hoy <strong>Bs 1.450</strong></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Franja de negocios -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Tiendas de barrio</span><span>Bazares</span><span>Librerías</span><span>Ferreterías</span><span>Negocios familiares</span><span>Minimercados</span>
+        <span>Tiendas de barrio</span><span>Bazares</span><span>Librerías</span><span>Ferreterías</span><span>Negocios familiares</span><span>Minimercados</span>
+      </div>
+    </div>
+
+    <!-- PROBLEMA -->
+    <section class="section" id="problema">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">El problema</p>
+          <h2>Administrar un negocio con registros dispersos cuesta tiempo y genera errores</h2>
+          <p>Muchas tiendas de barrio, bazares y librerías anotan sus ventas en cuadernos o llevan el stock en hojas de cálculo que hay que mantener al día a mano.</p>
+        </header>
+        <div class="cards cards-3">
+          <article class="card reveal">
+            <span class="icon icon-warn" aria-hidden="true"><svg><use href="#i-book"/></svg></span>
+            <h3>Registros manuales</h3>
+            <p>Anotar cada venta y producto a mano consume tiempo y es fácil equivocarse al actualizar cantidades.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon icon-warn" aria-hidden="true"><svg><use href="#i-layers"/></svg></span>
+            <h3>Información dispersa</h3>
+            <p>Cuadernos, planillas y mensajes separados dificultan saber cuánto hay en stock o qué se vendió ayer.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon icon-warn" aria-hidden="true"><svg><use href="#i-sliders"/></svg></span>
+            <h3>Sistemas demasiado complejos</h3>
+            <p>Algunas herramientas ofrecen mucho más de lo que un comercio pequeño necesita, y pueden resultar costosas o difíciles de aprender.</p>
+          </article>
+        </div>
+        <p class="note reveal">Estas dificultades son hipótesis de trabajo que estamos validando con propietarios reales mediante entrevistas y esta misma beta.</p>
+      </div>
+    </section>
+
+    <!-- SOLUCIÓN / PROPUESTA DE VALOR -->
+    <section class="section section-alt" id="solucion">
+      <div class="container split">
+        <div class="reveal">
+          <p class="eyebrow">Propuesta de valor</p>
+          <h2>Lo esencial para tu negocio, sin lo que no necesitas</h2>
+          <p>ALTIORA centraliza productos, precios, existencias y ventas en una interfaz sencilla, hecha para usarse en el mostrador.</p>
+          <ul class="checklist">
+            <li><strong>Registra ventas</strong> en pocos clics y calcula el cambio al instante.</li>
+            <li><strong>Administra productos</strong> con precios y alertas de stock mínimo.</li>
+            <li><strong>Consulta el historial</strong> de ventas con filtros por fecha y método de pago.</li>
+            <li><strong>Crece a tu ritmo</strong> con planes según el tamaño de tu negocio.</li>
+          </ul>
+        </div>
+        <aside class="audience reveal" aria-labelledby="publico-titulo">
+          <h3 id="publico-titulo">¿Para quién es ALTIORA?</h3>
+          <p>Propietarios y administradores de pequeños comercios minoristas:</p>
+          <ul class="tags">
+            <li>Tiendas de barrio</li>
+            <li>Bazares</li>
+            <li>Librerías pequeñas</li>
+            <li>Ferreterías pequeñas</li>
+            <li>Negocios familiares</li>
+            <li>Comercios que hoy usan cuaderno o Excel</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <header class="section-head section-head-center reveal">
+          <p class="eyebrow">Cómo funciona</p>
+          <h2>De tu cuaderno a tu panel en tres pasos</h2>
+        </header>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">1</span>
+            <span class="icon" aria-hidden="true"><svg><use href="#i-package"/></svg></span>
+            <h3>Carga tus productos</h3>
+            <p>Registra nombre, precio y stock. Define un mínimo para que ALTIORA te avise cuándo reponer.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">2</span>
+            <span class="icon" aria-hidden="true"><svg><use href="#i-cart"/></svg></span>
+            <h3>Vende sin complicarte</h3>
+            <p>Agrega productos al ticket, elige efectivo o QR y confirma. El inventario se descuenta solo.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">3</span>
+            <span class="icon" aria-hidden="true"><svg><use href="#i-chart"/></svg></span>
+            <h3>Revisa cómo te va</h3>
+            <p>Mira tus ventas del día, el historial y los productos por reponer desde un solo panel.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="section section-alt" id="beneficios">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Beneficios</p>
+          <h2>Por qué te conviene probar ALTIORA</h2>
+        </header>
+        <div class="cards cards-5">
+          <article class="card card-benefit reveal">
+            <span class="icon" aria-hidden="true"><svg><use href="#i-zap"/></svg></span>
+            <h3>Simplicidad</h3>
+            <p>Una plataforma fácil de aprender para registrar ventas y administrar productos.</p>
+          </article>
+          <article class="card card-benefit reveal">
+            <span class="icon" aria-hidden="true"><svg><use href="#i-clock"/></svg></span>
+            <h3>Ahorro de tiempo</h3>
+            <p>Menos registros manuales y menos información duplicada.</p>
+          </article>
+          <article class="card card-benefit reveal">
+            <span class="icon" aria-hidden="true"><svg><use href="#i-search"/></svg></span>
+            <h3>Claridad</h3>
+            <p>Consulta inventario, historial y reportes (según el plan) en un solo lugar.</p>
+          </article>
+          <article class="card card-benefit reveal">
+            <span class="icon" aria-hidden="true"><svg><use href="#i-shield"/></svg></span>
+            <h3>Tranquilidad</h3>
+            <p>Información más ordenada y menor riesgo de errores por registros dispersos.</p>
+          </article>
+          <article class="card card-benefit reveal">
+            <span class="icon" aria-hidden="true"><svg><use href="#i-trend"/></svg></span>
+            <h3>Apoyo al crecimiento</h3>
+            <p>Más productos, ventas y usuarios a medida que tu negocio crece.</p>
+          </article>
+        </div>
+        <p class="note reveal">Son beneficios esperados que se comprobarán con usuarios durante la beta; todavía no son resultados demostrados.</p>
+      </div>
+    </section>
+
+    <!-- PROTOTIPO -->
+    <section class="section section-dark" id="prototipo">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow eyebrow-light">Prototipo</p>
+          <h2>Mira cómo sería usar ALTIORA</h2>
+          <p>Recorre las cinco pantallas principales del prototipo. Son wireframes con datos ficticios que muestran la estructura y las interacciones previstas.</p>
+        </header>
+
+        <div class="tabs" role="tablist" aria-label="Pantallas del prototipo">
+          <button role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true">1 · Inicio de sesión</button>
+          <button role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">2 · Panel principal</button>
+          <button role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">3 · Productos</button>
+          <button role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1">4 · Nueva venta</button>
+          <button role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1">5 · Historial</button>
+        </div>
+
+        <div class="tabpanel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+          <a class="shot" href="assets/wireframe-1-login.jpg" target="_blank" rel="noopener"><img src="assets/wireframe-1-login.jpg" width="1282" height="862" loading="lazy" alt="Wireframe 1: pantalla de inicio de sesión de ALTIORA"></a>
+          <div class="shot-info">
+            <h3>Inicio de sesión</h3>
+            <p><strong>Objetivo:</strong> representar el acceso del usuario a la plataforma.</p>
+            <p><strong>Interacción:</strong> ingresar correo y contraseña y pulsar “Ingresar al sistema” para llegar al panel.</p>
+          </div>
+        </div>
+        <div class="tabpanel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+          <a class="shot" href="assets/wireframe-2-panel.jpg" target="_blank" rel="noopener"><img src="assets/wireframe-2-panel.jpg" width="1352" height="1235" loading="lazy" alt="Wireframe 2: panel principal con indicadores de ventas y existencias"></a>
+          <div class="shot-info">
+            <h3>Panel principal</h3>
+            <p><strong>Objetivo:</strong> mostrar un resumen de la información relevante del negocio.</p>
+            <p><strong>Interacción:</strong> consultar los indicadores y entrar a productos o al registro de ventas.</p>
+          </div>
+        </div>
+        <div class="tabpanel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+          <a class="shot" href="assets/wireframe-3-productos.jpg" target="_blank" rel="noopener"><img src="assets/wireframe-3-productos.jpg" width="1349" height="1139" loading="lazy" alt="Wireframe 3: gestión de productos e inventario con formulario de alta"></a>
+          <div class="shot-info">
+            <h3>Gestión de productos e inventario</h3>
+            <p><strong>Objetivo:</strong> consultar y administrar el catálogo y sus existencias.</p>
+            <p><strong>Interacción:</strong> buscar un producto o abrir el formulario para agregar uno nuevo.</p>
+          </div>
+        </div>
+        <div class="tabpanel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" hidden>
+          <a class="shot" href="assets/wireframe-4-venta.jpg" target="_blank" rel="noopener"><img src="assets/wireframe-4-venta.jpg" width="1350" height="1268" loading="lazy" alt="Wireframe 4: registro de una nueva venta con resumen de cobro"></a>
+          <div class="shot-info">
+            <h3>Registro de una nueva venta</h3>
+            <p><strong>Objetivo:</strong> seleccionar productos, indicar cantidades y calcular el total.</p>
+            <p><strong>Interacción:</strong> agregar productos, revisar el importe y confirmar la venta de demostración.</p>
+          </div>
+        </div>
+        <div class="tabpanel" role="tabpanel" id="panel-5" aria-labelledby="tab-5" hidden>
+          <a class="shot" href="assets/wireframe-5-historial.jpg" target="_blank" rel="noopener"><img src="assets/wireframe-5-historial.jpg" width="1352" height="1273" loading="lazy" alt="Wireframe 5: historial de ventas con filtros y detalle de una operación"></a>
+          <div class="shot-info">
+            <h3>Historial de ventas</h3>
+            <p><strong>Objetivo:</strong> consultar las operaciones registradas.</p>
+            <p><strong>Interacción:</strong> buscar con filtros y abrir el detalle de una venta.</p>
+          </div>
+        </div>
+        <p class="note note-light">Toca una imagen para verla en tamaño completo. Estas pantallas son un diseño conceptual: aún no son un producto terminado.</p>
+      </div>
+    </section>
+
+    <!-- PLANES -->
+    <section class="section" id="planes">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">Planes propuestos</p>
+          <h2>Elige según el tamaño de tu negocio</h2>
+          <p>Suscripción mensual con una prueba gratuita de 7 días. Los precios son una hipótesis inicial y pueden cambiar según lo que aprendamos en la beta.</p>
+        </header>
+        <div class="plans">
+          <article class="plan reveal">
+            <h3>Básico</h3>
+            <p class="price"><span>Bs</span> 39<small>/mes</small></p>
+            <p class="plan-for">Para empezar con lo esencial.</p>
+            <ul>
+              <li>1 usuario</li>
+              <li>Hasta 100 productos</li>
+              <li>Registro de ventas</li>
+              <li>Control de inventario</li>
+              <li>Historial de ventas</li>
+              <li>Soporte por correo electrónico</li>
+            </ul>
+          </article>
+          <article class="plan plan-featured reveal">
+            <p class="badge">Más completo para crecer</p>
+            <h3>Profesional</h3>
+            <p class="price"><span>Bs</span> 89<small>/mes</small></p>
+            <p class="plan-for">Para negocios con más movimiento.</p>
+            <ul>
+              <li>Hasta 3 usuarios</li>
+              <li>Hasta 1.000 productos</li>
+              <li>Todo lo del plan Básico</li>
+              <li>Registro de clientes</li>
+              <li>Reportes de ventas</li>
+              <li>Soporte por chat</li>
+            </ul>
+          </article>
+          <article class="plan reveal">
+            <h3>Empresarial</h3>
+            <p class="price"><span>Bs</span> 169<small>/mes</small></p>
+            <p class="plan-for">Para equipos con gestión más amplia.</p>
+            <ul>
+              <li>Hasta 10 usuarios</li>
+              <li>Productos sin límite predeterminado*</li>
+              <li>Todo lo del plan Profesional</li>
+              <li>Reportes avanzados</li>
+              <li>Exportación a Excel</li>
+              <li>Soporte prioritario</li>
+            </ul>
+          </article>
+        </div>
+        <p class="note reveal">*Sujeto a la capacidad técnica del servicio. Las funciones se presentan como propuestas hasta que estén desarrolladas y probadas. En esta beta no se realizan cobros.</p>
+      </div>
+    </section>
+
+    <!-- FORMULARIO BETA -->
+    <section class="section section-cta" id="beta">
+      <div class="blob blob-3" aria-hidden="true"></div>
+      <div class="container beta-grid">
+        <div class="beta-copy reveal">
+          <p class="eyebrow eyebrow-light">Beta de ALTIORA</p>
+          <h2>Sé de los primeros en probarla</h2>
+          <p>Déjanos tus datos y cuéntanos qué necesitas. Tu opinión nos ayudará a decidir qué construir primero.</p>
+          <ul class="checklist checklist-light">
+            <li>Sin costo ni tarjeta: no se realizan cobros.</li>
+            <li>Solo te escribiremos sobre la beta.</li>
+            <li>Tus datos se usan únicamente para este proyecto académico.</li>
+          </ul>
+        </div>
+
+        <form id="beta-form" class="form reveal" novalidate aria-labelledby="form-titulo">
+          <h3 id="form-titulo">Inscripción a la beta</h3>
+
+          <div class="field">
+            <label for="nombre">Nombre completo <span class="req">*</span></label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name" placeholder="Ej. María Fernández" required minlength="3" maxlength="80" aria-describedby="nombre-error">
+            <p class="error" id="nombre-error" role="alert"></p>
+          </div>
+
+          <div class="field">
+            <label for="correo">Correo electrónico <span class="req">*</span></label>
+            <input type="email" id="correo" name="correo" autocomplete="email" inputmode="email" placeholder="tu@correo.com" required maxlength="120" aria-describedby="correo-error">
+            <p class="error" id="correo-error" role="alert"></p>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="perfil">Tu perfil <span class="req">*</span></label>
+              <select id="perfil" name="perfil" required aria-describedby="perfil-error">
+                <option value="">Selecciona una opción</option>
+                <option>Propietario de tienda de barrio</option>
+                <option>Propietario de bazar o librería</option>
+                <option>Encargado o administrador de un comercio</option>
+                <option>Emprendedor que está por abrir un negocio</option>
+                <option>Estudiante o profesional interesado</option>
+                <option>Otro</option>
+              </select>
+              <p class="error" id="perfil-error" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="negocio">Negocio o empresa <span class="opt">(opcional)</span></label>
+              <input type="text" id="negocio" name="negocio" autocomplete="organization" placeholder="Ej. Abarrotes Don Carlos" maxlength="80" aria-describedby="negocio-error">
+              <p class="error" id="negocio-error" role="alert"></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="necesidad">¿Qué te gustaría resolver hoy? <span class="req">*</span></label>
+            <textarea id="necesidad" name="necesidad" rows="4" required minlength="10" maxlength="500" placeholder="Ej. Pierdo tiempo anotando ventas en el cuaderno y no sé cuánto stock me queda." aria-describedby="necesidad-error necesidad-count"></textarea>
+            <div class="field-foot">
+              <p class="error" id="necesidad-error" role="alert"></p>
+              <p class="count" id="necesidad-count" aria-live="off">0 / 500</p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="interes">¿Qué función te interesa más? <span class="req">*</span></label>
+            <select id="interes" name="interes" required aria-describedby="interes-error">
+              <option value="">Selecciona una opción</option>
+              <option>Registrar ventas</option>
+              <option>Controlar inventario y stock</option>
+              <option>Historial de ventas</option>
+              <option>Reportes</option>
+              <option>Registro de clientes</option>
+              <option>Todo lo anterior</option>
+            </select>
+            <p class="error" id="interes-error" role="alert"></p>
+          </div>
+
+          <div class="field field-check">
+            <input type="checkbox" id="consentimiento" name="consentimiento" required aria-describedby="consentimiento-error">
+            <label for="consentimiento">Acepto que ALTIORA use mis datos para contactarme sobre la beta. <span class="req">*</span></label>
+            <p class="error" id="consentimiento-error" role="alert"></p>
+          </div>
+
+          <!-- Campo trampa anti-spam: los usuarios reales no lo ven -->
+          <div class="hp" aria-hidden="true">
+            <label for="sitio_web">No completar</label>
+            <input type="text" id="sitio_web" name="sitio_web" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+            <span class="btn-label">Inscribirme a la beta</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+
+          <div id="form-status" class="status" role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="brand brand-light" href="#inicio"><span class="brand-mark" aria-hidden="true">A</span><span class="brand-name">ALTIORA</span></a>
+        <p>Una forma sencilla de controlar las ventas y el inventario de tu pequeño negocio desde un solo lugar.</p>
+      </div>
+      <p class="legal">Proyecto académico — Universidad Privada Domingo Savio, Ingeniería de Sistemas. Tarija, Bolivia · Octubre 2026.<br>Prototipo con datos ficticios. No se procesan pagos reales.</p>
+    </div>
+  </footer>
+
+  <a class="sticky-cta" id="sticky-cta" href="#beta" data-track="cta_sticky">Unirme a la beta <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+
+  <script src="config.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
