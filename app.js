@@ -283,4 +283,51 @@
       })
       .then(function () { setLoading(false); });
   });
+  /* ---------- Verificar estado de suscripción (PUT) ---------- */
+  var btnVerificar = document.getElementById('btn-verificar');
+  var statusResultado = document.getElementById('status-resultado');
+  var emailInput = document.getElementById('verificar-correo');
+
+  // ⚠️ IMPORTANTE: Reemplazá esta URL por la de tu Dev Tunnel de Visual Studio
+  var DEV_TUNNEL_URL = "https://kvjrd2pg-7000.brs.devtunnels.ms"; 
+
+  if (btnVerificar) {
+    btnVerificar.addEventListener('click', function() {
+      var correo = emailInput.value.trim();
+      if(!correo) {
+        alert("Por favor, ingresa tu correo.");
+        return;
+      }
+
+      statusResultado.style.display = 'block';
+      statusResultado.style.backgroundColor = '#fff3cd';
+      statusResultado.style.color = '#856404';
+      statusResultado.textContent = 'Estado antes: Inscrita (Verificando en el sistema...)';
+
+      fetch(DEV_TUNNEL_URL + '/api/suscripciones/estado', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ CorreoElectronico: correo, NuevoEstado: 'Atendida' })
+      })
+      .then(function(res) {
+        return res.json().then(function(data) { return { status: res.status, body: data }; });
+      })
+      .then(function(res) {
+        if (res.status === 200) {
+          statusResultado.style.backgroundColor = '#d4edda';
+          statusResultado.style.color = '#155724';
+          statusResultado.textContent = 'Estado después: Atendida. ¡Pronto te contactaremos para activar tu cuenta!';
+        } else {
+          statusResultado.style.backgroundColor = '#f8d7da';
+          statusResultado.style.color = '#721c24';
+          statusResultado.textContent = 'Error: ' + (res.body.error || 'No se pudo actualizar');
+        }
+      })
+      .catch(function(err) {
+        statusResultado.style.backgroundColor = '#f8d7da';
+        statusResultado.style.color = '#721c24';
+        statusResultado.textContent = 'Error de red. Verifica que el túnel esté activo.';
+      });
+    });
+  }
 })();
