@@ -289,7 +289,7 @@
   var emailInput = document.getElementById('verificar-correo');
 
   // ⚠️ IMPORTANTE: Reemplazá esta URL por la de tu Dev Tunnel de Visual Studio
-  var DEV_TUNNEL_URL = "https://kvjrd2pg-7000.brs.devtunnels.ms"; 
+  var DEV_TUNNEL_URL = "https://d5m7wqgb-7000.brs.devtunnels.ms"; 
 
   if (btnVerificar) {
     btnVerificar.addEventListener('click', function() {
